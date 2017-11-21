@@ -6,27 +6,75 @@ import org.xdove.jwt.utils.Algorithm;
 import org.xdove.jwt.utils.SignatureAlgorithm;
 import org.xdove.jwt.utils.algorithm.HMACSHA256;
 
+import com.alibaba.fastjson.JSONObject;
+
+/**
+ * JWT构建器
+ * @author Wszl
+ * @date 2017年11月21日
+ */
 public class JWTBuilder {
 	
+	/** JWTBuilder属性：JWT实例 */
 	private JWT jwt;
 
-	private Algorithm alg;
+	/** JWTBuilder属性：签名算法*/
+	private SignatureAlgorithm alg;
+	
+	/** JWTBuilder属性：签名密钥*/
+	private byte[] key;
 
-    public JWTBuilder(JWT jwt, SignatureAlgorithm alg, byte[] key) {
+	/** 默认签名算法 */
+	public static final SignatureAlgorithm defAlg = SignatureAlgorithm.HS256;
+	public static final String defType = "JWT";
+	
+    public JWTBuilder() {
+		super();
+		
+		this.jwt = new JWT();
+
+		this.alg = defAlg;	
+	}
+
+	public JWTBuilder(JWT jwt, SignatureAlgorithm alg, byte[] key) {
         this.jwt = jwt;
-        switch (alg) {
-            case HS256:
-                jwt.setAlg(alg.name());
-                this.alg = new HMACSHA256(key, jwt);
-                break;
-
-            default:
-                throw new UnsupportedAlgorithmException("unsupport algorithm " + alg);
-        }
+        this.alg = alg;
+        this.key = key;
     }
+	
+	public JWT build() {
+		jwt.setAlg(alg.name());
+		jwt.setTyp(defType);
+		return jwt;
+	}
 
     public String compact() {
-        return alg.build();
+    	JSONObject 
+    	jwt.setSignature(signature);
     }
+
+    public JWT getJwt() {
+		return jwt;
+	}
+
+	public void setJwt(JWT jwt) {
+		this.jwt = jwt;
+	}
+
+	public SignatureAlgorithm getAlg() {
+		return alg;
+	}
+
+	public void setAlg(SignatureAlgorithm alg) {
+		this.alg = alg;
+	}
+
+	public byte[] getKey() {
+		return key;
+	}
+
+	public void setKey(byte[] key) {
+		this.key = key;
+	}
 
 }

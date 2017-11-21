@@ -15,10 +15,18 @@ import org.xdove.jwt.entity.JWT;
 import org.xdove.jwt.utils.Algorithm;
 
 public final class HMACSHA256 implements Algorithm {
+	
+	public static final String NAME = "HmacSHA256";
 
 	private byte[] key;
 
 	private JWT jwt;
+
+	public HMACSHA256() {
+		super();
+		
+		this.key = Mac.getInstance(algorithm);
+	}
 
 	public HMACSHA256(byte[] key, JWT jwt) {
 		this.key = key;
