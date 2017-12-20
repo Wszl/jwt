@@ -1,12 +1,15 @@
 package org.xdove.jwt;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xdove.jwt.entity.JWT;
-import org.xdove.jwt.exception.UnsupportedAlgorithmException;
+import org.xdove.jwt.exception.CryptException;
 import org.xdove.jwt.utils.Algorithm;
+import org.xdove.jwt.utils.CryptJWT;
 import org.xdove.jwt.utils.SignatureAlgorithm;
-import org.xdove.jwt.utils.algorithm.HMACSHA256;
+import org.xdove.jwt.utils.algorithm.CommonAlgorithm;
 
-import com.alibaba.fastjson.JSONObject;
+import java.util.Date;
 
 /**
  * JWT构建器
@@ -14,43 +17,56 @@ import com.alibaba.fastjson.JSONObject;
  * @date 2017年11月21日
  */
 public class JWTBuilder {
-	
-	/** JWTBuilder属性：JWT实例 */
+
+	private final Logger log = LoggerFactory.getLogger(JWTBuilder.class);
+
+	/** JWT实例 */
 	private JWT jwt;
 
-	/** JWTBuilder属性：签名算法*/
-	private SignatureAlgorithm alg;
+	/** 签名算法*/
+	private Algorithm alg;
 	
-	/** JWTBuilder属性：签名密钥*/
+	/** 签名密钥*/
 	private byte[] key;
 
-	/** 默认签名算法 */
-	public static final SignatureAlgorithm defAlg = SignatureAlgorithm.HS256;
-	public static final String defType = "JWT";
-	
+
+	public static final String DEFAULT_TYP = "JWT";
+
     public JWTBuilder() {
 		super();
-		
 		this.jwt = new JWT();
-
-		this.alg = defAlg;	
+		this.alg = CommonAlgorithm.getInstance(SignatureAlgorithm.HS256);
 	}
 
 	public JWTBuilder(JWT jwt, SignatureAlgorithm alg, byte[] key) {
         this.jwt = jwt;
-        this.alg = alg;
+        this.alg = CommonAlgorithm.getInstance(alg);
         this.key = key;
     }
-	
-	public JWT build() {
-		jwt.setAlg(alg.name());
-		jwt.setTyp(defType);
-		return jwt;
+
+    public static JWTBuilder construct() {
+    	return new JWTBuilder();
+	}
+
+	public static JWTBuilder construct(JWT jwt, SignatureAlgorithm alg, byte[] key) {
+		return new JWTBuilder(jwt, alg, key);
+}
+
+	public JWTBuilder build() {
+		jwt.setAlg(alg.getName());
+		jwt.setTyp(DEFAULT_TYP);
+
+		jwt.setIat(new Date());
+		return this;
 	}
 
     public String compact() {
-    	JSONObject 
-    	jwt.setSignature(signature);
+        if (key == null) {
+            log.error("密钥不能为null, 请设置加密密钥，key={}", key);
+        	throw new CryptException("密钥不能为null，请设置加密密钥。");
+		}
+
+		return CryptJWT.cryptJWT(jwt, alg, key);
     }
 
     public JWT getJwt() {
@@ -61,14 +77,6 @@ public class JWTBuilder {
 		this.jwt = jwt;
 	}
 
-	public SignatureAlgorithm getAlg() {
-		return alg;
-	}
-
-	public void setAlg(SignatureAlgorithm alg) {
-		this.alg = alg;
-	}
-
 	public byte[] getKey() {
 		return key;
 	}
@@ -77,4 +85,11 @@ public class JWTBuilder {
 		this.key = key;
 	}
 
+	public Algorithm getAlg() {
+		return alg;
+	}
+
+	public void setAlg(Algorithm alg) {
+		this.alg = alg;
+	}
 }

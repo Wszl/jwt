@@ -7,9 +7,17 @@ package org.xdove.jwt.utils;
  */
 public enum SignatureAlgorithm {
 	HS256("HmacSHA256");
-	
-	private SignatureAlgorithm(String name) {
 
+	private String fullName;
+	private SignatureAlgorithm(String name) {
+		this.fullName = name;
 	}
-	
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 }

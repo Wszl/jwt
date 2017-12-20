@@ -1,6 +1,8 @@
 package org.xdove.jwt.entity;
 
-public class Header {
+import org.xdove.jwt.IHeader;
+
+public class Header implements IHeader {
     protected String typ;
     protected String alg;
 
@@ -11,18 +13,22 @@ public class Header {
 
     public Header() {}
 
+    @Override
     public void setTyp(String typ) {
         this.typ = typ;
     }
 
+    @Override
     public void setAlg(String alg) {
         this.alg = alg;
     }
 
+    @Override
     public String getTyp() {
         return typ;
     }
 
+    @Override
     public String getAlg() {
         return alg;
     }
