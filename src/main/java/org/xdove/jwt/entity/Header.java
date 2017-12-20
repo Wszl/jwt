@@ -1,6 +1,6 @@
-package main.java.org.xdove.jwt.entity;
+package org.xdove.jwt.entity;
 
-import main.java.org.xdove.jwt.IHeader;
+import org.xdove.jwt.IHeader;
 
 public class Header implements IHeader {
     protected String typ;

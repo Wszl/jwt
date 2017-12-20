@@ -1,13 +1,13 @@
-package main.java.org.xdove.jwt;
+package org.xdove.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import main.java.org.xdove.jwt.entity.JWT;
-import main.java.org.xdove.jwt.exception.CryptException;
-import main.java.org.xdove.jwt.utils.Algorithm;
-import main.java.org.xdove.jwt.utils.CryptJWT;
-import main.java.org.xdove.jwt.utils.SignatureAlgorithm;
-import main.java.org.xdove.jwt.utils.algorithm.CommonAlgorithm;
+import org.xdove.jwt.entity.JWT;
+import org.xdove.jwt.exception.CryptException;
+import org.xdove.jwt.utils.Algorithm;
+import org.xdove.jwt.utils.CryptJWT;
+import org.xdove.jwt.utils.SignatureAlgorithm;
+import org.xdove.jwt.utils.algorithm.CommonAlgorithm;
 
 import java.util.Date;
 

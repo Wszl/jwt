@@ -1,22 +1,11 @@
 package org.xdove.jwt;
 
 import org.junit.Test;
-import main.java.org.xdove.jwt.JWTBuilder;
-import main.java.org.xdove.jwt.entity.JWT;
+import org.xdove.jwt.entity.JWT;
 
 import java.util.Date;
 
 public class JWTBuilderTest {
-
-    @Test
-    public void build() {
-        JWTBuilder jb = new JWTBuilder();
-        jb.build();
-    }
-
-    @Test
-    public void compact() {
-    }
 
     @Test
     public void test() {

@@ -1,4 +1,4 @@
-package main.java.org.xdove.jwt.exception;
+package org.xdove.jwt.exception;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;

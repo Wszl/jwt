@@ -1,11 +1,8 @@
-package main.java.org.xdove.jwt.utils;
+package org.xdove.jwt.utils;
 
-import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import main.java.org.xdove.jwt.IJWT;
-
-import java.util.Base64;
+import org.xdove.jwt.IJWT;
 
 /**
  * CryptJWT
@@ -21,32 +18,24 @@ public class CryptJWT {
 
     public static String cryptJWT(IJWT jwt, Algorithm algorithm, byte[] key) {
         StringBuilder sb = new StringBuilder();
-        sb.append(base64Crypt(jwt.getHeader()))
+        sb.append(AlgorithmUtils.base64Crypt(jwt.getHeader()))
                 .append(JWT_SPLIT_SPEC)
-                .append(base64Crypt(jwt.getPayload()))
-                .append(JWT_SPLIT_SPEC)
-                .append(jwtCrypt(sb.toString(), algorithm, key));
+                .append(AlgorithmUtils.base64Crypt(jwt.getPayload()));
+        log.debug("crypt sting : {}", sb);
+
+        String signature = jwtCrypt(sb.toString(), algorithm, key);
+        log.trace("sinature string : {}", signature);
+
+        sb.append(JWT_SPLIT_SPEC)
+                .append(signature);
 
         return sb.toString();
     }
 
-    public static String parseJson(Object obj) {
-        return JSONObject.toJSONString(obj);
-    }
-
-    public static byte[] parseBase64Url(byte[] data) {
-        Base64.Encoder encoder = Base64.getUrlEncoder();
-        return encoder.encode(data);
-    }
-
-    public static String base64Crypt(Object obj) {
-        return new String(parseBase64Url(parseJson(obj).getBytes()));
-    }
 
     public static String jwtCrypt(String str, Algorithm algorithm, byte[] key) {
         log.info("jwt crypt : str={}, alg={}, key={}", str, algorithm, key);
-        Base64.Encoder encoder = Base64.getEncoder();
-        return new String(encoder.encode(algorithm.signature(str.getBytes(), key)));
+        return AlgorithmUtils.byte2hex(algorithm.signature(str.getBytes(), key));
     }
 
 }

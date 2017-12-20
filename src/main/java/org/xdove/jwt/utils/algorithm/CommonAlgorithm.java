@@ -1,4 +1,7 @@
-package main.java.org.xdove.jwt.utils.algorithm;
+package org.xdove.jwt.utils.algorithm;
+
+import org.xdove.jwt.utils.Algorithm;
+import org.xdove.jwt.utils.SignatureAlgorithm;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -6,8 +9,6 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import main.java.org.xdove.jwt.utils.Algorithm;
-import main.java.org.xdove.jwt.utils.SignatureAlgorithm;
 
 public final class CommonAlgorithm implements Algorithm {
 

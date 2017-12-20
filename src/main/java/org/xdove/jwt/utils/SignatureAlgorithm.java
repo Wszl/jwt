@@ -1,4 +1,4 @@
-package main.java.org.xdove.jwt.utils;
+package org.xdove.jwt.utils;
 
 /**
  * 签名算法枚举类

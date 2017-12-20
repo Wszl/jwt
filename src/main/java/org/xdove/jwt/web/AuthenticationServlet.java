@@ -1,8 +1,8 @@
-package main.java.org.xdove.jwt.web;
+package org.xdove.jwt.web;
 
-import main.java.org.xdove.jwt.JWTBuilder;
-import main.java.org.xdove.jwt.entity.JWT;
-import main.java.org.xdove.jwt.utils.SignatureAlgorithm;
+
+import org.xdove.jwt.JWTBuilder;
+import org.xdove.jwt.entity.JWT;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;

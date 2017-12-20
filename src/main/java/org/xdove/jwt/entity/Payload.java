@@ -1,6 +1,6 @@
-package main.java.org.xdove.jwt.entity;
+package org.xdove.jwt.entity;
 
-import main.java.org.xdove.jwt.IPayload;
+import org.xdove.jwt.IPayload;
 
 import java.util.Date;
 

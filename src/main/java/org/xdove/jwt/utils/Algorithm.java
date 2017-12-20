@@ -1,6 +1,4 @@
-package main.java.org.xdove.jwt.utils;
-
-import main.java.org.xdove.jwt.entity.JWT;
+package org.xdove.jwt.utils;
 
 /**
  * 算法接口

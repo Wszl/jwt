@@ -1,4 +1,4 @@
-package main.java.org.xdove.jwt.exception;
+package org.xdove.jwt.exception;
 
 /**
  * 不支持的算法异常

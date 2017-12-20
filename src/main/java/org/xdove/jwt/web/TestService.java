@@ -1,4 +1,4 @@
-package main.java.org.xdove.jwt.web;
+package org.xdove.jwt.web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package main.java.org.xdove.jwt;
+package org.xdove.jwt;
 
 import java.util.Date;
 

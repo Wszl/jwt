@@ -1,8 +1,9 @@
-package main.java.org.xdove.jwt.entity;
+package org.xdove.jwt.entity;
 
-import main.java.org.xdove.jwt.IHeader;
-import main.java.org.xdove.jwt.IJWT;
-import main.java.org.xdove.jwt.IPayload;
+
+import org.xdove.jwt.IHeader;
+import org.xdove.jwt.IJWT;
+import org.xdove.jwt.IPayload;
 
 import java.util.Date;
 
@@ -15,9 +16,9 @@ import java.util.Date;
  */
 public class JWT implements IJWT {
 	/** JWT头 */
-    protected IHeader    header;
+    protected IHeader header;
     /** JWT载荷，向此处注入Payload子类即实现了对JWT的扩展*/
-    protected IPayload   payload;
+    protected IPayload payload;
     /** JWT签名，默认使用 Hmacsha256算法 */
     protected String    signature;
 
