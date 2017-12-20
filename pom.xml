@@ -44,7 +44,10 @@
 
   </dependencies>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <outputDirectory>target/classes</outputDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <testOutputDirectory>target/test-classes</testOutputDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
