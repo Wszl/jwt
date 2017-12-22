@@ -15,10 +15,6 @@ public class AlgorithmUtils {
         return encoder.encode(data);
     }
 
-    public static String base64Crypt(Object obj) {
-        return new String(parseBase64Url(parseJson(obj).getBytes()));
-    }
-
     public static String byte2hex(byte[] b)
     {
         StringBuilder hs = new StringBuilder();

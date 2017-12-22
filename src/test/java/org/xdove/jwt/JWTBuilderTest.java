@@ -1,7 +1,7 @@
 package org.xdove.jwt;
 
 import org.junit.Test;
-import org.xdove.jwt.entity.JWT;
+import org.xdove.jwt.entity.common.JWT;
 
 import java.util.Date;
 

@@ -2,10 +2,10 @@ package org.xdove.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xdove.jwt.entity.JWT;
+import org.xdove.jwt.entity.common.JWT;
 import org.xdove.jwt.exception.CryptException;
 import org.xdove.jwt.utils.Algorithm;
-import org.xdove.jwt.utils.CryptJWT;
+import org.xdove.jwt.utils.EncryptJWT;
 import org.xdove.jwt.utils.SignatureAlgorithm;
 import org.xdove.jwt.utils.algorithm.CommonAlgorithm;
 
@@ -66,7 +66,7 @@ public class JWTBuilder {
         	throw new CryptException("密钥不能为null，请设置加密密钥。");
 		}
 
-		return CryptJWT.cryptJWT(jwt, alg, key);
+		return EncryptJWT.encrypt(jwt, alg, key);
     }
 
     public JWT getJwt() {

@@ -1,4 +1,4 @@
-package org.xdove.jwt;
+package org.xdove.jwt.entity;
 
 /**
  * Header

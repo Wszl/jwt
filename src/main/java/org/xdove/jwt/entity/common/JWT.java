@@ -1,9 +1,9 @@
-package org.xdove.jwt.entity;
+package org.xdove.jwt.entity.common;
 
 
-import org.xdove.jwt.IHeader;
-import org.xdove.jwt.IJWT;
-import org.xdove.jwt.IPayload;
+import org.xdove.jwt.entity.IHeader;
+import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IPayload;
 
 import java.util.Date;
 

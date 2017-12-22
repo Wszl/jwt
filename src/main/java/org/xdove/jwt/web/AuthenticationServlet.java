@@ -2,7 +2,7 @@ package org.xdove.jwt.web;
 
 
 import org.xdove.jwt.JWTBuilder;
-import org.xdove.jwt.entity.JWT;
+import org.xdove.jwt.entity.common.JWT;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
