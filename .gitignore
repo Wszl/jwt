@@ -15,3 +15,4 @@ gen### Example user template template
 out
 gen
 /jwt.iml
+/.idea/

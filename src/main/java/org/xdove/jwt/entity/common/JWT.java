@@ -22,6 +22,15 @@ public class JWT implements IJWT {
     /** JWT签名，默认使用 Hmacsha256算法 */
     protected String    signature;
 
+    public JWT() {
+        this.header = new Header();
+        this.payload = new Payload();
+    }
+
+    public JWT(IHeader header, IPayload payload) {
+        this.header = header;
+        this.payload = payload;
+    }
 
     public JWT setAlg(String alg) {
         if (this.header == null) {

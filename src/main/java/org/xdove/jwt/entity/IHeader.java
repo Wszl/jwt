@@ -8,6 +8,9 @@ package org.xdove.jwt.entity;
  */
 public interface IHeader {
 
+    public static final String TYP = "typ";
+    public static final String ALG = "ALG";
+
     String getTyp();
 
     void setTyp(String typ);

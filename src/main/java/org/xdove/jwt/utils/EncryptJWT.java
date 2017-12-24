@@ -18,9 +18,9 @@ public class EncryptJWT {
 
     public static String encrypt(IJWT jwt, Algorithm algorithm, byte[] key) {
         StringBuilder sb = new StringBuilder();
-        sb.append(AlgorithmUtils.parseBase64Url(AlgorithmUtils.parseJson(jwt.getHeader()).getBytes()))
+        sb.append(new String(AlgorithmUtils.parseBase64Url(AlgorithmUtils.parseJson(jwt.getHeader()).getBytes())))
                 .append(JWT_SPLIT_SPEC)
-                .append(AlgorithmUtils.parseBase64Url(AlgorithmUtils.parseJson(jwt.getPayload()).getBytes()));
+                .append(new String(AlgorithmUtils.parseBase64Url(AlgorithmUtils.parseJson(jwt.getPayload()).getBytes())));
         log.debug("crypt sting : {}", sb);
 
         String signature = AlgorithmUtils.byte2hex(algorithm.signature(sb.toString().getBytes(), key));
@@ -37,6 +37,7 @@ public class EncryptJWT {
         if (jwtArr.length != 3) {
             log.debug("unsupport format : {}.");
         }
+        return null;
     }
 
 }

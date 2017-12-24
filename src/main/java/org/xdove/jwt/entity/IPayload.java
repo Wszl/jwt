@@ -10,6 +10,13 @@ import java.util.Date;
  */
 public interface IPayload {
 
+    public static final String SUB = "sub";
+    public static final String ISS = "iss";
+    public static final String IAT = "iat";
+    public static final String EXP = "exp";
+    public static final String NBF = "nbf";
+    public static final String JTI = "jti";
+
     void setSub(String sub);
 
     String getSub();
