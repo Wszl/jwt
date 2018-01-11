@@ -37,6 +37,7 @@ public class EncryptJWT {
         if (jwtArr.length != 3) {
             log.debug("unsupport format : {}.");
         }
+
         return null;
     }
 

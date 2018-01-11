@@ -20,4 +20,8 @@ public enum SignatureAlgorithm {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
+	public SignatureAlgorithm get(String name) {
+		return null;
+	}
 }
