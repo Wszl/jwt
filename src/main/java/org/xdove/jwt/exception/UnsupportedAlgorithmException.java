@@ -11,7 +11,7 @@ public class UnsupportedAlgorithmException extends RuntimeException {
 	}
 
 	public UnsupportedAlgorithmException(String message) {
-		super(message);
+		super("unsupport algorithm " + message);
 	}
 
 	public UnsupportedAlgorithmException(String message, Throwable cause) {

@@ -1,4 +1,4 @@
-package org.xdove.jwt.utils;
+package org.xdove.jwt.utils.algorithm;
 
 /**
  * 算法接口
@@ -14,4 +14,6 @@ public interface Algorithm {
 	byte[] signature(byte[] data, byte[] key);
 
 	String getName();
+
+	String getFullName();
 }

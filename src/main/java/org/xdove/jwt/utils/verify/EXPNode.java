@@ -1,6 +1,6 @@
 package org.xdove.jwt.utils.verify;
 
-import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IJwt;
 import org.xdove.jwt.exception.ExpireException;
 
 import java.util.Date;
@@ -14,7 +14,7 @@ import java.util.Date;
 public class EXPNode extends Node {
 
     @Override
-    void validate(IJWT jwt) {
+    void validate(IJwt jwt) {
         Date now = new Date();
         Date exp = jwt.getPayload().getExp();
         if (exp != null

@@ -1,6 +1,6 @@
 package org.xdove.jwt.utils.verify;
 
-import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IJwt;
 
 /**
  * Node
@@ -16,7 +16,7 @@ public abstract class Node {
      * 信息校验方法
      * @param jwt
      */
-    abstract void validate(IJWT jwt);
+    abstract void validate(IJwt jwt);
 
     public Node getNode() {
         return node;

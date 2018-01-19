@@ -1,5 +1,7 @@
 package org.xdove.jwt.entity;
 
+import java.util.Map;
+
 /**
  * Header
  *
@@ -9,7 +11,7 @@ package org.xdove.jwt.entity;
 public interface IHeader {
 
     public static final String TYP = "typ";
-    public static final String ALG = "ALG";
+    public static final String ALG = "alg";
 
     String getTyp();
 
@@ -18,4 +20,8 @@ public interface IHeader {
     String getAlg();
 
     void setAlg(String alg);
+
+    void add(String key, String value);
+
+    void add(Map map);
 }

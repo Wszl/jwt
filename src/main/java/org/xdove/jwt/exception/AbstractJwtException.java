@@ -9,24 +9,24 @@ import java.io.PrintWriter;
  * @author 张超
  * @date 2017年12月20日
  */
-public abstract class AbstractJWTException extends RuntimeException {
-    public AbstractJWTException() {
+public abstract class AbstractJwtException extends RuntimeException {
+    public AbstractJwtException() {
         super();
     }
 
-    public AbstractJWTException(String message) {
+    public AbstractJwtException(String message) {
         super(message);
     }
 
-    public AbstractJWTException(String message, Throwable cause) {
+    public AbstractJwtException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public AbstractJWTException(Throwable cause) {
+    public AbstractJwtException(Throwable cause) {
         super(cause);
     }
 
-    protected AbstractJWTException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    protected AbstractJwtException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 

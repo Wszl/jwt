@@ -1,9 +1,5 @@
 package org.xdove.jwt.web;
 
-import java.security.Key;
-import java.security.KeyFactory;
-
-
 public class Config {
 	public static final byte[] key;
 	public static final String username = "test";

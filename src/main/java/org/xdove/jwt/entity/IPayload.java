@@ -1,6 +1,7 @@
 package org.xdove.jwt.entity;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Payload
@@ -40,5 +41,9 @@ public interface IPayload {
     void setJti(String jti);
 
     String getJti();
+
+    void add(String key, String value);
+
+    void add(Map map);
 
 }

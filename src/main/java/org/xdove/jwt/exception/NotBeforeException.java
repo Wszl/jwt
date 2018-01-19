@@ -6,7 +6,7 @@ package org.xdove.jwt.exception;
  * @author zhangchao
  * @date 2018年1月11日
  */
-public class NotBeforeException extends AbstractJWTException {
+public class NotBeforeException extends AbstractJwtException {
 
     public NotBeforeException(String message) {
         super(message);

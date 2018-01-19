@@ -6,7 +6,7 @@ package org.xdove.jwt.exception;
  * @author zhangchao
  * @date 2018年1月11日
  */
-public class IncredibleTokenException extends AbstractJWTException {
+public class IncredibleTokenException extends AbstractJwtException {
     public IncredibleTokenException(String message) {
         super(message);
     }

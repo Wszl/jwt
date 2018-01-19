@@ -1,11 +1,10 @@
 package org.xdove.jwt.utils.verify;
 
-import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IJwt;
 import org.xdove.jwt.exception.IncredibleTokenException;
-import org.xdove.jwt.utils.Algorithm;
-import org.xdove.jwt.utils.EncryptJWT;
-import org.xdove.jwt.utils.SignatureAlgorithm;
-import org.xdove.jwt.utils.algorithm.CommonAlgorithm;
+import org.xdove.jwt.utils.EncryptJwt;
+import org.xdove.jwt.utils.algorithm.Algorithm;
+import org.xdove.jwt.utils.algorithm.AlgorithmFactory;
 import org.xdove.jwt.web.Config;
 
 /**
@@ -18,11 +17,11 @@ import org.xdove.jwt.web.Config;
 public class EffectiveNode extends Node {
 
     @Override
-    public void validate(IJWT jwt) {
+    public void validate(IJwt jwt) {
 
-        Algorithm alg = CommonAlgorithm.getInstance(SignatureAlgorithm.HS256);
+        Algorithm alg = AlgorithmFactory.getInstance(jwt.getHeader().getAlg());
 
-        String jwts = EncryptJWT.encrypt(jwt, alg, Config.key);
+        String jwts = EncryptJwt.encrypt(jwt, alg.getFullName(), Config.key);
 
         if (jwt.getSignature().equalsIgnoreCase(jwts)) {
             this.node.validate(jwt);

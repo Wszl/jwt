@@ -4,30 +4,28 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 
 /**
- * CryptException
- *
- * @author 张超
- * @date 2017年12月20日
+ * 不可信任的JWT凭证异常类
+ * @author Wszl
+ * @date 2017年12月27日
  */
-public class CryptException extends AbstractJwtException {
-
-    public CryptException() {
+public class TrustlessException extends AbstractJwtException {
+    public TrustlessException() {
         super();
     }
 
-    public CryptException(String message) {
+    public TrustlessException(String message) {
         super(message);
     }
 
-    public CryptException(String message, Throwable cause) {
+    public TrustlessException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public CryptException(Throwable cause) {
+    public TrustlessException(Throwable cause) {
         super(cause);
     }
 
-    protected CryptException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    protected TrustlessException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 

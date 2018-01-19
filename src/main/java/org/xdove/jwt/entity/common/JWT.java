@@ -2,8 +2,9 @@ package org.xdove.jwt.entity.common;
 
 
 import org.xdove.jwt.entity.IHeader;
-import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IJwt;
 import org.xdove.jwt.entity.IPayload;
+import org.xdove.jwt.utils.EncryptJwt;
 
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import java.util.Date;
  * @author Wszl
  * @date 2017年11月21日
  */
-public class JWT implements IJWT {
+public class JWT implements IJwt {
 	/** JWT头 */
     protected IHeader header;
     /** JWT载荷，向此处注入Payload子类即实现了对JWT的扩展*/
@@ -85,4 +86,13 @@ public class JWT implements IJWT {
         return signature;
     }
 
+    @Override
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    @Override
+    public String toString() {
+        return EncryptJwt.construct(this) + "." + signature;
+    }
 }

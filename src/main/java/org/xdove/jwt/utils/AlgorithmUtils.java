@@ -1,18 +1,22 @@
 package org.xdove.jwt.utils;
 
-import com.alibaba.fastjson.JSONObject;
-
 import java.util.Base64;
 
 public class AlgorithmUtils {
 
-    public static String parseJson(Object obj) {
-        return JSONObject.toJSONString(obj);
-    }
-
     public static byte[] parseBase64Url(byte[] data) {
         Base64.Encoder encoder = Base64.getUrlEncoder();
         return encoder.encode(data);
+    }
+
+    public static byte[] decodeBase64Url(byte[] data) {
+        Base64.Decoder decoder = Base64.getUrlDecoder();
+        return decoder.decode(data);
+    }
+
+    public static String decodeBase64Url(String data) {
+        Base64.Decoder decoder = Base64.getUrlDecoder();
+        return new String(decoder.decode(data));
     }
 
     public static String byte2hex(byte[] b)

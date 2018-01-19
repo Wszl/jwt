@@ -2,9 +2,9 @@ package org.xdove.jwt.entity.common;
 
 import org.xdove.jwt.entity.AbstractContains;
 import org.xdove.jwt.entity.IPayload;
-import sun.security.x509.IPAddressName;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * 由于JWT的时效性，注定了服务器和客户端需要保持时间的同步
@@ -74,5 +74,15 @@ public class Payload extends AbstractContains implements IPayload {
     @Override
     public String getJti() {
         return (String) this.get(IPayload.JTI);
+    }
+
+    @Override
+    public void add(String key, String value) {
+        this.put(key, value);
+    }
+
+    @Override
+    public void add(Map map) {
+        this.putAll(map);
     }
 }

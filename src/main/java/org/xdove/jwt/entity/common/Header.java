@@ -3,6 +3,8 @@ package org.xdove.jwt.entity.common;
 import org.xdove.jwt.entity.AbstractContains;
 import org.xdove.jwt.entity.IHeader;
 
+import java.util.Map;
+
 public class Header extends AbstractContains implements IHeader {
 
     public static final String TYP = "JWT";
@@ -31,5 +33,15 @@ public class Header extends AbstractContains implements IHeader {
     @Override
     public void setAlg(String alg) {
         this.put(IHeader.ALG, alg);
+    }
+
+    @Override
+    public void add(String key, String value) {
+        this.put(key, value);
+    }
+
+    @Override
+    public void add(Map map) {
+        this.putAll(map);
     }
 }

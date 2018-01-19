@@ -1,6 +1,6 @@
 package org.xdove.jwt.utils.verify;
 
-import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IJwt;
 
 /**
  * IATNode.
@@ -12,7 +12,7 @@ import org.xdove.jwt.entity.IJWT;
 public class IATNode extends Node {
 
     @Override
-    void validate(IJWT jwt) {
+    void validate(IJwt jwt) {
         this.node.validate(jwt);
     }
 }

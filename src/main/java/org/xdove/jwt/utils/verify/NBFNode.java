@@ -1,6 +1,6 @@
 package org.xdove.jwt.utils.verify;
 
-import org.xdove.jwt.entity.IJWT;
+import org.xdove.jwt.entity.IJwt;
 import org.xdove.jwt.exception.NotBeforeException;
 
 import java.util.Date;
@@ -15,7 +15,7 @@ import java.util.Date;
 public class NBFNode extends Node {
 
     @Override
-    public void validate(IJWT jwt) {
+    public void validate(IJwt jwt) {
         Date now = new Date();
         Date nbf = jwt.getPayload().getNbf();
         if (nbf != null

@@ -1,8 +1,9 @@
 package org.xdove.jwt.web;
 
 
-import org.xdove.jwt.JWTBuilder;
+import org.xdove.jwt.JwtBuilder;
 import org.xdove.jwt.entity.common.JWT;
+import org.xdove.jwt.utils.algorithm.SignatureAlgorithm;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
@@ -36,9 +37,9 @@ public class AuthenticationServlet extends javax.servlet.http.HttpServlet {
         //step 2 : 生成JWT
         JWT jwt = new JWT();
         jwt.setIat(new Date());
-        JWTBuilder jb = JWTBuilder.construct();
+        JwtBuilder jb = JwtBuilder.construct();
 
-        jb.setKey("233".getBytes());
+        jb.setKey("233".getBytes(), SignatureAlgorithm.HS256);
 
         String jwtStr = jb.compact();
 
